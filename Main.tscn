@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cfw3c24koqslt"]
+
+[ext_resource type="Script" uid="uid://neg7dk01w2rx" path="res://player.gd" id="1_glv2v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rxg2q"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rxg2q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rxg2q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_glv2v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_glv2v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
+
+[node name="Node3D" type="Node3D" unique_id=828090403]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=2060070311]
+script = ExtResource("1_glv2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1473422302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_rxg2q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=2035534229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_rxg2q")
+
+[node name="Head" type="Node3D" parent="Player" unique_id=317696302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="MainCamera" type="Camera3D" parent="Player/Head" unique_id=1922910998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/Head/MainCamera" unique_id=1849597086]
+target_position = Vector3(0, 0, -5)
+
+[node name="DirectionalLighting" type="DirectionalLight3D" parent="." unique_id=412199733]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, -1.4932008, 5.994214, 1.0288479)
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=426227959]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.30058622, 0)
+mesh = SubResource("PlaneMesh_rxg2q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground" unique_id=377903747]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D" unique_id=198686165]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_glv2v")
+
+[node name="DraggableCube" type="RigidBody3D" parent="." unique_id=1446668650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DraggableCube" unique_id=1531160367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+mesh = SubResource("BoxMesh_glv2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DraggableCube" unique_id=357340572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+shape = SubResource("BoxShape3D_uu6xs")
