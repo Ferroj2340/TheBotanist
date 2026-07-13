@@ -1,10 +1,11 @@
 extends CharacterBody3D
 @onready var raycast = $Head/MainCamera/RayCast3D
 @onready var head = $Head
+@onready var hold_point = $Head/MainCamera/HoldPoint
+var held_object: RigidBody3D = null
 const MOUSE_SENSITIVITY = 0.002
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -27,6 +28,18 @@ func _unhandled_input(event):
 				var obj = raycast.get_collider()
 				print(obj.name)
 
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+
+			if event.pressed:
+				if raycast.is_colliding():
+					var obj = raycast.get_collider()
+
+					if obj.name == "DraggableCube":
+						held_object = obj
+
+			else:
+				held_object = null
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_on_floor():
@@ -59,3 +72,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	if held_object != null:
+		held_object.global_position = hold_point.global_position
+		

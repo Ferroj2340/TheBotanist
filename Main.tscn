@@ -37,6 +37,9 @@ current = true
 [node name="RayCast3D" type="RayCast3D" parent="Player/Head/MainCamera" unique_id=1849597086]
 target_position = Vector3(0, 0, -5)
 
+[node name="HoldPoint" type="Marker3D" parent="Player/Head/MainCamera" unique_id=130248159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
 [node name="DirectionalLighting" type="DirectionalLight3D" parent="." unique_id=412199733]
 transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, -1.4932008, 5.994214, 1.0288479)
 
