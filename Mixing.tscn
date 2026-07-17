@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://bt7qcki4akva7"]
+
+[ext_resource type="Script" uid="uid://clsw5mtil3hjb" path="res://Mixing.gd" id="1_vglp5"]
+[ext_resource type="Script" uid="uid://blg32ova3ivvl" path="res://Slot.gd" id="2_23ycr"]
+[ext_resource type="PackedScene" uid="uid://dpok7twv4riat" path="res://IngredientItem.tscn" id="2_gdva4"]
+
+[node name="Control" type="Control" unique_id=1550055405]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vglp5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=489640555]
+layout_mode = 0
+offset_left = -1152.0
+offset_top = -1082.0
+offset_right = 2698.0
+offset_bottom = 945.0
+color = Color(0.45092398, 0.3132747, 0.20254657, 1)
+
+[node name="PosterPanel" type="Panel" parent="." unique_id=1488842213]
+layout_mode = 0
+offset_left = 899.0
+offset_right = 1148.0
+offset_bottom = 344.0
+
+[node name="PosterLabel" type="Label" parent="PosterPanel" unique_id=1943527091]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "SOIL REMEDIATION GUIDE
+
+Heavy Metal Contamination
+→ Chelating Agent + Biochar
+
+Nitrogen Deficiency
+→ Compost
+
+Acidic Soil
+→ Lime
+
+Low Phosphorus
+→ Bone Meal"
+
+[node name="MixingPanel" type="Panel" parent="." unique_id=1218100326]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 172.0
+offset_bottom = 40.0
+
+[node name="MixingLabel" type="Label" parent="MixingPanel" unique_id=35912619]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Choose 2 ingredients"
+
+[node name="Slot1" type="Panel" parent="MixingPanel" unique_id=1244204748]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 481.0
+offset_right = 508.0
+offset_bottom = 521.0
+script = ExtResource("2_23ycr")
+
+[node name="Slot2" type="Panel" parent="MixingPanel" unique_id=1699170983]
+layout_mode = 0
+offset_left = 609.0
+offset_top = 481.0
+offset_right = 649.0
+offset_bottom = 521.0
+script = ExtResource("2_23ycr")
+
+[node name="PlusLabel" type="Label" parent="MixingPanel" unique_id=495417965]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResultPanel" type="Panel" parent="." unique_id=846241439]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 385.0
+offset_right = 1121.0
+offset_bottom = 618.0
+
+[node name="ResultLabel" type="Label" parent="ResultPanel" unique_id=1333223507]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 116.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="MixButton" type="Button" parent="." unique_id=76274475]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 552.0
+offset_right = 582.0
+offset_bottom = 583.0
+text = "MIX"
+
+[node name="BackButton" type="Button" parent="." unique_id=209740606]
+layout_mode = 0
+offset_left = 506.0
+offset_top = -67.0
+offset_right = 556.0
+offset_bottom = -36.0
+text = "BACK"
+
+[node name="CompostItem" parent="." unique_id=1346852088 instance=ExtResource("2_gdva4")]
+layout_mode = 0
+offset_top = 486.0
+offset_right = 78.0
+offset_bottom = 517.0
+text = "Compost"
+
+[node name="ChelatingItem" parent="." unique_id=382910573 instance=ExtResource("2_gdva4")]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 485.0
+offset_right = 232.0
+offset_bottom = 516.0
+text = "Chelating Agent"
+
+[node name="BiocharItem" parent="." unique_id=2042325220 instance=ExtResource("2_gdva4")]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 487.0
+offset_right = 322.0
+offset_bottom = 518.0
+text = "Biochar"
+
+[node name="DeficiencyPanel" type="Panel" parent="." unique_id=99797362]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 52.0
+offset_right = 229.0
+offset_bottom = 126.0
+
+[node name="DeficiencyLabel" type="Label" parent="DeficiencyPanel" unique_id=160805405]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "DEFICIENCY
+Heavy Metal Contamination"
+
+[connection signal="pressed" from="MixButton" to="." method="_on_mix_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dpok7twv4riat"]
+
+[ext_resource type="Script" uid="uid://ccmiq0c2tq82v" path="res://IngredientItem.gd" id="1_lciw6"]
+
+[node name="Button" type="Button" unique_id=1346852088]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_lciw6")

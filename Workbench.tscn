@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://n6we54drhudc"]
+
+[ext_resource type="Script" uid="uid://bib8360jl2bnw" path="res://Workbench.gd" id="1_iwmi6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwmi6"]
+bg_color = Color(0.9490196, 0.92156863, 0.8666667, 1)
+border_color = Color(0.3529412, 0.27450982, 0.19607843, 1)
+
+[node name="Control" type="Control" unique_id=1474442593]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_iwmi6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1423125665]
+layout_mode = 0
+offset_left = -1152.0
+offset_top = -1082.0
+offset_right = 2698.0
+offset_bottom = 945.0
+color = Color(0.45092398, 0.3132747, 0.20254657, 1)
+
+[node name="InstructionLabel" type="Label" parent="." unique_id=408759148]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1684771965]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CombineZone" type="Panel" parent="." unique_id=848835025]
+layout_mode = 0
+offset_bottom = 40.0
+
+[node name="DeficiencyPanel" type="Panel" parent="." unique_id=2135880178]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 300.0
+offset_right = 669.0
+offset_bottom = 534.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iwmi6")
+
+[node name="DeficiencyLabel" type="Label" parent="DeficiencyPanel" unique_id=1765542850]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Deficiency detected"
+
+[node name="Padding" type="MarginContainer" parent="DeficiencyPanel" unique_id=1016443662]
+layout_mode = 0
+offset_right = 278.0
+offset_bottom = 40.0
+
+[node name="ContinueButton" type="Button" parent="DeficiencyPanel" unique_id=111783269]
+visible = false
+layout_mode = 0
+offset_left = 71.0
+offset_top = 240.0
+offset_right = 218.0
+offset_bottom = 271.0
+text = "Proceed to Mixing"
+
+[node name="WorkbenchItems" type="Control" parent="." unique_id=1192755337]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SoilSampleButton" type="Button" parent="WorkbenchItems" unique_id=21189709]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 112.0
+offset_right = 247.0
+offset_bottom = 143.0
+text = "SOIL SAMPLE"
+
+[node name="TestButton" type="Button" parent="WorkbenchItems" unique_id=815978622]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 62.0
+offset_right = 234.0
+offset_bottom = 93.0
+text = "TEST SOIL"
+
+[connection signal="pressed" from="DeficiencyPanel/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="WorkbenchItems/TestButton" to="." method="_on_test_button_pressed"]
