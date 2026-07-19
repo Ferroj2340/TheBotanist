@@ -12,7 +12,7 @@ config_version=5
 
 config/name="2026 Climate Game Jam"
 run/main_scene="uid://cfw3c24koqslt"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [physics]

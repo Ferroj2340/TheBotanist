@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dxe3ojpco1psu"]
+
+[ext_resource type="Script" uid="uid://b8ra335tdtsid" path="res://Terminal.gd" id="1_fvjlm"]
+
+[node name="Control" type="Control" unique_id=1468753732]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fvjlm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=633751315]
+layout_mode = 0
+offset_left = -1152.0
+offset_top = -1082.0
+offset_right = 2698.0
+offset_bottom = 945.0
+color = Color(0.30766165, 0.3099412, 0.29947188, 1)
+
+[node name="TerminalPanel" type="Panel" parent="." unique_id=1864256442]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="TerminalPanel" unique_id=649440290]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 13.0
+offset_right = 401.0
+offset_bottom = 88.0
+text = "══════════════════════════════
+ BOTANY DATABASE v2.4
+══════════════════════════════"
+
+[node name="SoilProfileLabel" type="Label" parent="TerminalPanel" unique_id=281782805]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 112.0
+offset_right = 216.0
+offset_bottom = 239.0
+text = "Current Soil Profile
+
+Clay Soil
+
+------------------------------------------------------------------------------------------------"
+
+[node name="PlantListLabel" type="Label" parent="TerminalPanel" unique_id=193764086]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 241.0
+offset_right = 196.0
+offset_bottom = 264.0
+text = "Recommended Crops"
+
+[node name="TomatoButton" type="Button" parent="TerminalPanel" unique_id=2131450396]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 378.0
+offset_right = 143.0
+offset_bottom = 409.0
+text = "Tomato"
+
+[node name="BeansButton" type="Button" parent="TerminalPanel" unique_id=1081119345]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 289.0
+offset_right = 137.0
+offset_bottom = 320.0
+text = "Beans"
+
+[node name="CarrotButton" type="Button" parent="TerminalPanel" unique_id=1043531628]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 333.0
+offset_right = 138.0
+offset_bottom = 364.0
+text = "Carrot"
+
+[node name="CheckButton" type="Button" parent="TerminalPanel" unique_id=1605237530]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 489.0
+offset_right = 140.0
+offset_bottom = 520.0
+text = "CHECK"
+
+[node name="ContinueButton" type="Button" parent="TerminalPanel" unique_id=808144812]
+visible = false
+layout_mode = 0
+offset_left = 917.0
+offset_top = 350.0
+offset_right = 1008.0
+offset_bottom = 381.0
+text = "CONTINUE"
+
+[node name="TitleLabel2" type="Label" parent="TerminalPanel" unique_id=629285663]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 430.0
+offset_right = 550.0
+offset_bottom = 505.0
+text = "------------------------------------------------------------------------------------------------"
+
+[node name="ResultLabel" type="Label" parent="TerminalPanel" unique_id=1240606106]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 535.0
+offset_right = 338.0
+offset_bottom = 558.0
+text = "Select a plant, then press CHECK."
+
+[connection signal="pressed" from="TerminalPanel/TomatoButton" to="." method="_on_tomato_button_pressed"]
+[connection signal="pressed" from="TerminalPanel/BeansButton" to="." method="_on_beans_button_pressed"]
+[connection signal="pressed" from="TerminalPanel/CarrotButton" to="." method="_on_carrot_button_pressed"]
+[connection signal="pressed" from="TerminalPanel/CheckButton" to="." method="_on_check_button_pressed"]
+[connection signal="pressed" from="TerminalPanel/ContinueButton" to="." method="_on_continue_button_pressed"]
